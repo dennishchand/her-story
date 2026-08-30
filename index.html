@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#090909" />
+  <title>HER STORY — Siwanjini</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar" id="topbar">
+    <a href="#home" class="brand" aria-label="Her Story home">HER<span>STORY</span></a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="#home" class="active">Home</a>
+      <a href="#trending">Memories</a>
+      <a href="#adventure">Adventures</a>
+      <a href="#daily">Daily Cut</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="sound-toggle" id="soundToggle" aria-label="Toggle ambience">♪</button>
+      <div class="profile-dot" aria-hidden="true">S</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home" aria-label="Featured story">
+      <picture class="hero-picture">
+        <source media="(max-width: 700px)" srcset="images/photo-01.webp" />
+        <img class="hero-image" src="images/photo-04.webp" alt="Featured photo of Siwanjini" />
+      </picture>
+      <div class="hero-wash"></div>
+      <div class="hero-content">
+        <p class="eyebrow"><span class="mini-mark">D</span> A DENNISH ORIGINAL</p>
+        <h1>Siwanjini</h1>
+        <p class="hero-kicker">The Most Beautiful Smile</p>
+        <div class="hero-meta">
+          <span class="match">100% favourite</span>
+          <span>Romance</span>
+          <span>Comedy</span>
+          <span>Adventure</span>
+        </div>
+        <p class="hero-copy">
+          A little archive of the smiles, food dates, random stops, adventures and ordinary days that somehow became the moments worth keeping.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-light" id="openAlbum">▦ <span>Open Album</span></button>
+          <button class="btn btn-glass" id="openStory">ⓘ <span>Our Story</span></button>
+        </div>
+      </div>
+      <div class="hero-stamp">
+        <span>FEATURED</span>
+        <strong>01</strong>
+      </div>
+    </section>
+
+    <section class="gallery-shell" aria-label="Photo gallery">
+      <div id="galleryRoot"></div>
+    </section>
+  </main>
+
+  <div class="modal" id="photoModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-photo></div>
+    <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" data-close-photo aria-label="Close photo">×</button>
+      <div class="modal-media">
+        <img id="modalImage" alt="Selected memory" />
+      </div>
+      <div class="modal-copy">
+        <p class="modal-label">FROM OUR ARCHIVE</p>
+        <h2 id="modalTitle"></h2>
+        <div class="modal-meta">
+          <span id="modalLocation"></span>
+          <span id="modalDateSep">•</span>
+          <span id="modalDate"></span>
+        </div>
+        <p id="modalCaption"></p>
+        <div class="modal-heart">♥ <span>Saved forever.</span></div>
+      </div>
+    </article>
+  </div>
+
+  <div class="modal" id="storyModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-story></div>
+    <article class="story-card" role="dialog" aria-modal="true" aria-labelledby="storyTitle">
+      <button class="modal-close" data-close-story aria-label="Close story">×</button>
+      <p class="modal-label">OUR STORY</p>
+      <h2 id="storyTitle">One story.<br>Thousands of little moments.</h2>
+      <div class="story-rule"></div>
+      <p>
+        Some memories are big. Most are not. They are coffee stops, dinners, road trips, silly photos, quiet moments and the kind of smiles you only notice properly later.
+      </p>
+      <p>
+        This page is for those moments — the ones I want to keep coming back to.
+      </p>
+      <p class="story-signoff">Still adding episodes. ♥</p>
+      <div class="story-watermark">US</div>
+    </article>
+  </div>
+
+  <footer>
+    <div class="footer-brand">HER<span>STORY</span></div>
+    <p>Made for Siwanjini.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
