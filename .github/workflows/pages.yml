@@ -23,14 +23,37 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Build static site
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf site
+          mkdir -p site
+          unzip -q her-story-hires.zip -d site
+          cp index.html style.css script.js photos-hires.js .nojekyll site/
+
+      - name: Verify all 20 photos
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(find site/assets -maxdepth 1 -type f -name 'photo-*.webp' | wc -l | tr -d ' ')" = "20"
+          for i in $(seq -w 1 20); do
+            test -s "site/assets/photo-${i}.webp"
+          done
+          grep -q 'assets/${key}.webp' site/photos-hires.js
+          echo "All 20 high-resolution gallery photos are present."
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:
           enablement: true
+
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: site
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
